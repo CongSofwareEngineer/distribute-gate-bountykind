@@ -52,8 +52,8 @@ const Home: NextPage = () => {
 
   switch (chain?.id) {
     case 56: // Mainnet
-      DISTRIBUTE_GATE = '0x3f59d8896346d4E2e8c75622c30694E823EfAFDd';
-      break;
+    DISTRIBUTE_GATE = '0x5e5e8ac9d08e2d2625b3f629978440fc268b6d14';
+    break;
     case 97: // Testnet
       DISTRIBUTE_GATE = '0x3f59d8896346d4E2e8c75622c30694E823EfAFDd';
       break;
@@ -108,6 +108,10 @@ const Home: NextPage = () => {
     document.body.removeChild(a);
   }
 
+
+  console.log('====================================');
+  console.log({inputForm});
+  console.log('====================================');
   let {
     data: approveTx,
     error: approveError,
@@ -245,6 +249,9 @@ const Home: NextPage = () => {
           args: [DISTRIBUTE_GATE, totalAmounts]
         });
       }
+      console.log('====================================');
+      console.log({DISTRIBUTE_GATE,totalAmounts,decimals});
+      console.log('====================================');
     } catch (error) {
       console.log(error)
       setLoading(false);
@@ -288,6 +295,10 @@ const Home: NextPage = () => {
       setIsModalOpen(true);
     }
   }, [distributeReceipt, distributeSuccess]);
+
+  console.log('====================================');
+  console.log({validAddress,validFile});
+  console.log('====================================');
 
   return (
     <div className={styles.container}>
